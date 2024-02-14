@@ -1,0 +1,17 @@
+<!-- confirmDelete.ejs -->
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác nhận Xóa</title>
+</head>
+<body class="bg-danger">
+    <h1>Xác nhận Xóa</h1>
+    <p>Bạn có chắc chắn muốn xóa người dùng này không?</p>
+    <form action="/delete/<%= id %>/confirm" method="post">
+        <button type="submit">Xác nhận Xóa</button>
+    </form>
+</body>
+</html>
