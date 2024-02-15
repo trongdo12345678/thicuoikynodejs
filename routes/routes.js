@@ -172,19 +172,7 @@ router.post('/update/:id', upload, async (req, res) => {
     }
 });
 
-// Route ban đầu để hiển thị trang xóa
 router.get('/delete/:id', async (req, res) => {
-    try {
-        let id = req.params.id;
-        // Hiển thị trang xác nhận
-        res.render('views/delete.ejs', { id }); // Thay đổi tên tệp thành 'delete.ejs'
-    } catch (err) {
-        res.json({ message: err.message, type: 'danger' });
-    }
-});
-
-// Route mới để xử lý xóa sau khi xác nhận
-router.post('/delete/:id/confirm', async (req, res) => {
     try {
         let id = req.params.id;
         let result = await User.findByIdAndDelete(id);
@@ -199,7 +187,7 @@ router.post('/delete/:id/confirm', async (req, res) => {
 
         req.session.message = {
             type: "info",
-            message: "Người dùng đã được xóa thành công!"
+            message: "User deleted successfully!"
         };
         res.redirect("/");
     } catch (err) {
